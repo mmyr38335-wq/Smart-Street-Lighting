@@ -1,0 +1,1249 @@
+[
+    {
+        "id": "a9a3e6035eb4fb24",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "ce874ee0dc8c7c99",
+        "type": "mqtt-broker",
+        "name": "HiyeMQ Broker",
+        "broker": "127.0.0.1",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "29ecb4a2a1d02e33",
+        "type": "sqlitedb",
+        "db": "C:\\Users\\Dell\\.node-red\\smartstreet.db",
+        "mode": "RW"
+    },
+    {
+        "id": "de025092e0237321",
+        "type": "ui-base",
+        "name": "My Dashboard",
+        "path": "/dashboard",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-control",
+            "ui-notification"
+        ]
+    },
+    {
+        "id": "0b96e251a59bf3f4",
+        "type": "ui-theme",
+        "name": "Default Theme",
+        "colors": {
+            "surface": "#fcfcfd",
+            "primary": "#0d74ce",
+            "bgPage": "#f9f9fb",
+            "groupBg": "#ffffff",
+            "groupOutline": "#d9d9e0"
+        }
+    },
+    {
+        "id": "091bd43927dea278",
+        "type": "ui-theme",
+        "name": "Theme Name",
+        "colors": {
+            "surface": "#38bcd6",
+            "primary": "#1fdb7a",
+            "bgPage": "#d60a47",
+            "groupBg": "#22e2c2",
+            "groupOutline": "#b94b86"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    },
+    {
+        "id": "7296cfe2a71e9439",
+        "type": "ui-page",
+        "name": "Smart Street Main",
+        "ui": "de025092e0237321",
+        "path": "/page2",
+        "layout": "grid",
+        "theme": "091bd43927dea278",
+        "order": 1,
+        "className": ""
+    },
+    {
+        "id": "21724ba734e55774",
+        "type": "ui-group",
+        "name": "Sensors Controls",
+        "page": "7296cfe2a71e9439",
+        "width": 6,
+        "height": 1,
+        "order": 1,
+        "className": ""
+    },
+    {
+        "id": "815d7a85f53e94c0",
+        "type": "telegram bot",
+        "botname": "OmirBot",
+        "usernames": "",
+        "chatids": "",
+        "baseapiurl": "",
+        "testenvironment": false,
+        "updatemode": "polling",
+        "pollinterval": 300,
+        "usesocks": false,
+        "sockshost": "",
+        "socksprotocol": "socks5",
+        "socksport": 6667,
+        "socksusername": "anonymous",
+        "sockspassword": "",
+        "bothost": "",
+        "botpath": "",
+        "localbothost": "0.0.0.0",
+        "localbotport": 8443,
+        "publicbotport": 8443,
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": false
+    },
+    {
+        "id": "04c7784bfbc2f239",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "broker.hivemq.com",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "5eb2e08cec7f7cc1",
+        "type": "mqtt in",
+        "z": "a9a3e6035eb4fb24",
+        "name": "ESP32 telemetry Sub",
+        "topic": "smartstreet/sensors",
+        "qos": "2",
+        "datatype": "json",
+        "broker": "04c7784bfbc2f239",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 760,
+        "y": 740,
+        "wires": [
+            [
+                "422331007afea7e4",
+                "b60f691dfb875799",
+                "c843e35e35060aee",
+                "0a51e86b5a9b0244"
+            ]
+        ]
+    },
+    {
+        "id": "0a51e86b5a9b0244",
+        "type": "debug",
+        "z": "a9a3e6035eb4fb24",
+        "name": "debug 1",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1080,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "eb6971363cec6145",
+        "type": "inject",
+        "z": "a9a3e6035eb4fb24",
+        "name": "ESP32 Simulator",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"distance\":250,\"motion\":1,\"light1\":1,\"light2\":0,\"light3\":0,\"light4\":0,\"mode\":\"AUTO\"}",
+        "payloadType": "json",
+        "x": 740,
+        "y": 860,
+        "wires": [
+            [
+                "9d6eb1df79ea35e7"
+            ]
+        ]
+    },
+    {
+        "id": "826c25c10b04647d",
+        "type": "mqtt out",
+        "z": "a9a3e6035eb4fb24",
+        "name": "Publish Simulated Data",
+        "topic": "smartstreet/telemetry",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "ce874ee0dc8c7c99",
+        "x": 1250,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "422331007afea7e4",
+        "type": "function",
+        "z": "a9a3e6035eb4fb24",
+        "name": "Save State to Context",
+        "func": "// حفظ أحدث حالة واصلة في ذاكرة السيرفر\nglobal.set('systemState', msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1020,
+        "y": 700,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "09ec4a87f396f862",
+        "type": "http in",
+        "z": "a9a3e6035eb4fb24",
+        "name": "GET System Status",
+        "url": "/api/v1/system/status",
+        "method": "get",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 770,
+        "y": 980,
+        "wires": [
+            [
+                "16ce142a77332fcc"
+            ]
+        ]
+    },
+    {
+        "id": "16ce142a77332fcc",
+        "type": "function",
+        "z": "a9a3e6035eb4fb24",
+        "name": "Get State from Context",
+        "func": "// استرجاع البيانات من الذاكرة\nlet currentState = global.get('systemState') || {\n  \"status\": \"No data received yet\",\n  \"mode\": \"UNKNOWN\"\n};\n\nmsg.payload = {\n  \"success\": true,\n  \"timestamp\": new Date().toISOString(),\n  \"data\": currentState\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1060,
+        "y": 980,
+        "wires": [
+            [
+                "4dfde9802d61171c"
+            ]
+        ]
+    },
+    {
+        "id": "4dfde9802d61171c",
+        "type": "http response",
+        "z": "a9a3e6035eb4fb24",
+        "name": "HTTP Response",
+        "statusCode": "",
+        "headers": {},
+        "x": 1320,
+        "y": 980,
+        "wires": []
+    },
+    {
+        "id": "7e85504c86db7a26",
+        "type": "http in",
+        "z": "a9a3e6035eb4fb24",
+        "name": "POST Change Mode",
+        "url": "/api/v1/system/mode",
+        "method": "post",
+        "upload": false,
+        "skipBodyParsing": true,
+        "swaggerDoc": "",
+        "x": 690,
+        "y": 1140,
+        "wires": [
+            [
+                "04c22df5c1afb82d"
+            ]
+        ]
+    },
+    {
+        "id": "7fe6dce61510ff53",
+        "type": "function",
+        "z": "a9a3e6035eb4fb24",
+        "name": "Process Mode Change",
+        "func": "// التأكد من تحويل النص إلى Object إذا لزم الأمر\nlet data = (typeof msg.payload === 'string') ? JSON.parse(msg.payload) : msg.payload;\nlet newMode = data ? data.mode : null;\n\nif (newMode === \"AUTO\" || newMode === \"MANUAL\") {\n    let mqttMsg = {\n        topic: \"smartstreet/commands/mode\",\n        payload: { mode: newMode }\n    };\n    \n    msg.payload = {\n        success: true,\n        message: \"System mode updated to \" + newMode,\n        mode: newMode\n    };\n    \n    return [msg, mqttMsg];\n} else {\n    msg.statusCode = 400;\n    msg.payload = {\n        success: false,\n        error: \"Invalid mode. Required body: {\\\"mode\\\": \\\"AUTO\\\"} or {\\\"mode\\\": \\\"MANUAL\\\"}\"\n    };\n    return [msg, null];\n}",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1040,
+        "y": 1140,
+        "wires": [
+            [
+                "4dfde9802d61171c"
+            ],
+            [
+                "826c25c10b04647d"
+            ]
+        ]
+    },
+    {
+        "id": "d5c3bdbff34aa831",
+        "type": "http in",
+        "z": "a9a3e6035eb4fb24",
+        "name": "POST Control Light",
+        "url": "/api/v1/lights/control",
+        "method": "post",
+        "upload": false,
+        "skipBodyParsing": true,
+        "swaggerDoc": "",
+        "x": 710,
+        "y": 1280,
+        "wires": [
+            [
+                "412d611aeec70904"
+            ]
+        ]
+    },
+    {
+        "id": "aa8926d4cf688b06",
+        "type": "function",
+        "z": "a9a3e6035eb4fb24",
+        "name": "Process Light Control",
+        "func": "let data = (typeof msg.payload === 'string') ? JSON.parse(msg.payload) : msg.payload;\nlet lightId = data ? data.light_id : null;\nlet state = data ? data.state : null;\n\nif (lightId >= 1 && lightId <= 4 && (state === 0 || state === 1)) {\n    let mqttMsg = {\n        topic: \"smartstreet/commands/lights\",\n        payload: {\n            light_id: lightId,\n            state: state\n        }\n    };\n    \n    msg.payload = {\n        success: true,\n        message: \"Light \" + lightId + \" set to \" + (state === 1 ? \"ON\" : \"OFF\"),\n        light_id: lightId,\n        state: state\n    };\n    \n    return [msg, mqttMsg];\n} else {\n    msg.statusCode = 400;\n    msg.payload = {\n        success: false,\n        error: \"Invalid parameters. Required: light_id (1-4) and state (0 or 1).\"\n    };\n    return [msg, null];\n}",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1060,
+        "y": 1280,
+        "wires": [
+            [
+                "4dfde9802d61171c"
+            ],
+            [
+                "826c25c10b04647d"
+            ]
+        ]
+    },
+    {
+        "id": "412d611aeec70904",
+        "type": "json",
+        "z": "a9a3e6035eb4fb24",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 870,
+        "y": 1280,
+        "wires": [
+            [
+                "aa8926d4cf688b06"
+            ]
+        ]
+    },
+    {
+        "id": "04c22df5c1afb82d",
+        "type": "json",
+        "z": "a9a3e6035eb4fb24",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 870,
+        "y": 1140,
+        "wires": [
+            [
+                "7fe6dce61510ff53"
+            ]
+        ]
+    },
+    {
+        "id": "fb51bcda924ed352",
+        "type": "inject",
+        "z": "a9a3e6035eb4fb24",
+        "name": "Init DB",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 710,
+        "y": 1340,
+        "wires": [
+            [
+                "0b2a83c98191b5a6"
+            ]
+        ]
+    },
+    {
+        "id": "0b2a83c98191b5a6",
+        "type": "function",
+        "z": "a9a3e6035eb4fb24",
+        "name": "Create Tables Query",
+        "func": "msg.topic = `\n  CREATE TABLE IF NOT EXISTS telemetry (\n    id INTEGER PRIMARY KEY AUTOINCREMENT,\n    distance REAL,\n    motion INTEGER,\n    light1 INTEGER,\n    light2 INTEGER,\n    light3 INTEGER,\n    light4 INTEGER,\n    mode TEXT,\n    created_at DATETIME DEFAULT CURRENT_TIMESTAMP\n  );\n`;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 940,
+        "y": 1340,
+        "wires": [
+            [
+                "16bfb6152b6c1bc2"
+            ]
+        ]
+    },
+    {
+        "id": "16bfb6152b6c1bc2",
+        "type": "sqlite",
+        "z": "a9a3e6035eb4fb24",
+        "mydb": "29ecb4a2a1d02e33",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "",
+        "x": 1270,
+        "y": 1340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1a8cefbb13cddc97",
+        "type": "function",
+        "z": "a9a3e6035eb4fb24",
+        "name": "Prepare Insert Query",
+        "func": "let data = msg.payload;\n\n// التأكد من وجود البيانات وتنسيقها\nif (typeof data === 'string') {\n    try {\n        data = JSON.parse(data);\n    } catch(e) {\n        return null;\n    }\n}\n\nif (data && typeof data.distance !== 'undefined') {\n    msg.topic = `\n      INSERT INTO telemetry (distance, motion, light1, light2, light3, light4, mode)\n      VALUES (\n        ${data.distance},\n        ${data.motion},\n        ${data.light1},\n        ${data.light2},\n        ${data.light3},\n        ${data.light4},\n        '${data.mode}'\n      );\n    `;\n    return msg;\n}\n\nreturn null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1040,
+        "y": 620,
+        "wires": [
+            [
+                "16bfb6152b6c1bc2"
+            ]
+        ]
+    },
+    {
+        "id": "e87efefa65c3e624",
+        "type": "http in",
+        "z": "a9a3e6035eb4fb24",
+        "name": "GET History",
+        "url": "/api/v1/telemetry/history",
+        "method": "get",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 710,
+        "y": 1460,
+        "wires": [
+            [
+                "ef6c1fa72c2fa541"
+            ]
+        ]
+    },
+    {
+        "id": "5cf6cde6241ba730",
+        "type": "function",
+        "z": "a9a3e6035eb4fb24",
+        "name": "Prepare History Query",
+        "func": "msg.topic = \"SELECT * FROM telemetry ORDER BY id DESC LIMIT 20;\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1040,
+        "y": 1460,
+        "wires": [
+            [
+                "9a25677064acc891"
+            ]
+        ]
+    },
+    {
+        "id": "ef6c1fa72c2fa541",
+        "type": "json",
+        "z": "a9a3e6035eb4fb24",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 850,
+        "y": 1420,
+        "wires": [
+            [
+                "5cf6cde6241ba730"
+            ]
+        ]
+    },
+    {
+        "id": "9a25677064acc891",
+        "type": "sqlite",
+        "z": "a9a3e6035eb4fb24",
+        "mydb": "29ecb4a2a1d02e33",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "",
+        "x": 1370,
+        "y": 1460,
+        "wires": [
+            [
+                "e3982ab3ba0a3e45"
+            ]
+        ]
+    },
+    {
+        "id": "e3982ab3ba0a3e45",
+        "type": "function",
+        "z": "a9a3e6035eb4fb24",
+        "name": "Format History Response",
+        "func": "msg.payload = {\n    success: true,\n    count: msg.payload.length,\n    data: msg.payload\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1390,
+        "y": 1180,
+        "wires": [
+            [
+                "4dfde9802d61171c"
+            ]
+        ]
+    },
+    {
+        "id": "49775b2fb48dacb5",
+        "type": "ui-text",
+        "z": "a9a3e6035eb4fb24",
+        "group": "21724ba734e55774",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "System Mode",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "className": "",
+        "x": 720,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "8e97e3b5b0fe14ff",
+        "type": "ui-gauge",
+        "z": "a9a3e6035eb4fb24",
+        "name": "",
+        "group": "21724ba734e55774",
+        "order": 7,
+        "value": "payload",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "UI trasonic Distance(cm)",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "units",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "4",
+                "color": "#ffc800",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "7",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": "400",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 850,
+        "y": 540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "af27d81bb515d155",
+        "type": "ui-switch",
+        "z": "a9a3e6035eb4fb24",
+        "name": "",
+        "label": "System Mode (AUTO/MANUAL)",
+        "group": "21724ba734e55774",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": false,
+        "topic": "smartstreet/commands/mode",
+        "topicType": "msg",
+        "style": "",
+        "className": "",
+        "layout": "",
+        "clickableArea": "switch",
+        "onvalue": "MANUAL",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "AUTO",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "x": 850,
+        "y": 160,
+        "wires": [
+            [
+                "826c25c10b04647d"
+            ]
+        ]
+    },
+    {
+        "id": "2ae645aeabc31366",
+        "type": "ui-chart",
+        "z": "a9a3e6035eb4fb24",
+        "group": "21724ba734e55774",
+        "name": "",
+        "label": "Distance Trend",
+        "order": 9,
+        "chartType": "line",
+        "category": "topic",
+        "categoryType": "msg",
+        "xAxisProperty": "",
+        "xAxisPropertyType": "timestamp",
+        "xAxisType": "time",
+        "yAxisProperty": "payload",
+        "showLegend": true,
+        "removeOlder": "5",
+        "removeOlderUnit": "60",
+        "removeOlderPoints": "50",
+        "colors": [
+            "#0095ff",
+            "#ff0000",
+            "#ff7f0e",
+            "#2ca02c",
+            "#a347e1",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "width": 6,
+        "height": 8,
+        "className": "",
+        "x": 1120,
+        "y": 520,
+        "wires": [
+            [
+                "3549014c1a1737fc"
+            ]
+        ]
+    },
+    {
+        "id": "b60f691dfb875799",
+        "type": "function",
+        "z": "a9a3e6035eb4fb24",
+        "name": "Format For Dashboard",
+        "func": "let data = msg.payload;\n\nif (typeof data === 'string') {\n    try { data = JSON.parse(data); } catch(e) { return null; }\n}\n\nif (data && typeof data.distance !== 'undefined') {\n    // إرسال الرقم بشكل مجرد مع تحديد topic واضح للمخطط\n    let msgDistance = { \n        payload: Number(data.distance),\n        topic: \"Distance\"\n    };\n    \n    let msgMode = { \n        payload: String(data.mode) \n    };\n\n    return [msgDistance, msgMode];\n}\n\nreturn null;",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1080,
+        "y": 380,
+        "wires": [
+            [
+                "8e97e3b5b0fe14ff",
+                "6f32e7df3cdcaf4a",
+                "2ae645aeabc31366"
+            ],
+            [
+                "49775b2fb48dacb5"
+            ]
+        ]
+    },
+    {
+        "id": "6f32e7df3cdcaf4a",
+        "type": "debug",
+        "z": "a9a3e6035eb4fb24",
+        "name": "debug 2",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1280,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "670cd16b427f3155",
+        "type": "ui-switch",
+        "z": "a9a3e6035eb4fb24",
+        "name": "",
+        "label": "Light 1 Control",
+        "group": "21724ba734e55774",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": false,
+        "topic": "smartstreet/commands/mode",
+        "topicType": "msg",
+        "style": "",
+        "className": "",
+        "onvalue": "1",
+        "onvalueType": "num",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "0",
+        "offvalueType": "num",
+        "officon": "",
+        "offcolor": "",
+        "x": 740,
+        "y": 240,
+        "wires": [
+            [
+                "3d9eb17747a6b42a"
+            ]
+        ]
+    },
+    {
+        "id": "23f7859842f42fc5",
+        "type": "ui-switch",
+        "z": "a9a3e6035eb4fb24",
+        "name": "",
+        "label": "Light 2 Control",
+        "group": "21724ba734e55774",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": false,
+        "topic": "smartstreet/commands/mode",
+        "topicType": "msg",
+        "style": "",
+        "className": "",
+        "layout": "",
+        "clickableArea": "switch",
+        "onvalue": "1",
+        "onvalueType": "num",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "0",
+        "offvalueType": "num",
+        "officon": "",
+        "offcolor": "",
+        "x": 740,
+        "y": 300,
+        "wires": [
+            [
+                "3d9eb17747a6b42a"
+            ]
+        ]
+    },
+    {
+        "id": "dad39555b07aef7a",
+        "type": "ui-switch",
+        "z": "a9a3e6035eb4fb24",
+        "name": "",
+        "label": "Light 3 Control",
+        "group": "21724ba734e55774",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "topic": "smartstreet/commands/mode",
+        "topicType": "msg",
+        "style": "",
+        "className": "",
+        "onvalue": "1",
+        "onvalueType": "num",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "0",
+        "offvalueType": "num",
+        "officon": "",
+        "offcolor": "",
+        "x": 740,
+        "y": 360,
+        "wires": [
+            [
+                "3d9eb17747a6b42a"
+            ]
+        ]
+    },
+    {
+        "id": "47ea2256db011336",
+        "type": "ui-switch",
+        "z": "a9a3e6035eb4fb24",
+        "name": "",
+        "label": "Light 4 Control",
+        "group": "21724ba734e55774",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "topic": "smartstreet/commands/mode",
+        "topicType": "msg",
+        "style": "",
+        "className": "",
+        "onvalue": "1",
+        "onvalueType": "num",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "0",
+        "offvalueType": "num",
+        "officon": "",
+        "offcolor": "",
+        "x": 740,
+        "y": 400,
+        "wires": [
+            [
+                "3d9eb17747a6b42a"
+            ]
+        ]
+    },
+    {
+        "id": "3d9eb17747a6b42a",
+        "type": "function",
+        "z": "a9a3e6035eb4fb24",
+        "name": "Format Light Command",
+        "func": "// لمعرفة المصباح المراد تحكمه بناءً على عنوان الزر\nlet label = msg.ui_control ? msg.ui_control.label : \"\";\nlet lightId = 1;\n\nif (label.includes(\"2\")) lightId = 2;\nif (label.includes(\"3\")) lightId = 3;\nif (label.includes(\"4\")) lightId = 4;\n\nmsg.topic = \"smartstreet/commands/lights\";\nmsg.payload = {\n    light_id: lightId,\n    state: msg.payload\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1070,
+        "y": 240,
+        "wires": [
+            [
+                "826c25c10b04647d"
+            ]
+        ]
+    },
+    {
+        "id": "9d6eb1df79ea35e7",
+        "type": "function",
+        "z": "a9a3e6035eb4fb24",
+        "name": "Generate Random Data",
+        "func": "// توليد مسافة عشوائية متغيرة بين 20 و 200 سم\nlet randomDist = Math.floor(Math.random() * 180) + 20;\n\nmsg.payload = JSON.stringify({\n    distance: randomDist,\n    motion: 1,\n    light1: 1,\n    light2: 0,\n    light3: 1,\n    light4: 0,\n    mode: \"AUTO\"\n});\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 970,
+        "y": 860,
+        "wires": [
+            [
+                "826c25c10b04647d"
+            ]
+        ]
+    },
+    {
+        "id": "3549014c1a1737fc",
+        "type": "ui-button",
+        "z": "a9a3e6035eb4fb24",
+        "group": "21724ba734e55774",
+        "name": "",
+        "label": "button",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "[]",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 1290,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "040eadd0629d6381",
+        "type": "telegram receiver",
+        "z": "a9a3e6035eb4fb24",
+        "name": "",
+        "bot": "815d7a85f53e94c0",
+        "saveDataDir": "",
+        "filterCommands": false,
+        "hasinput": false,
+        "inputs": 0,
+        "handleallupdates": false,
+        "handleprocessupdates": false,
+        "x": 950,
+        "y": 1620,
+        "wires": [
+            [
+                "8a0645a9b8d1a138"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "69fc281b614f34da",
+        "type": "telegram sender",
+        "z": "a9a3e6035eb4fb24",
+        "name": "",
+        "bot": "815d7a85f53e94c0",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 1210,
+        "y": 1640,
+        "wires": [
+            [
+                "ce889417078eed64"
+            ]
+        ]
+    },
+    {
+        "id": "8a0645a9b8d1a138",
+        "type": "function",
+        "z": "a9a3e6035eb4fb24",
+        "name": "function 1",
+        "func": "msg.payload = {\n    chatId: msg.payload.chatId,\n    type: \"message\",\n    content: \"مرحباً بك 🙋\\nتم الاتصال بنظام IoT بنجاح.\"\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1080,
+        "y": 1760,
+        "wires": [
+            [
+                "69fc281b614f34da"
+            ]
+        ]
+    },
+    {
+        "id": "ea6a388caacea0b8",
+        "type": "inject",
+        "z": "a9a3e6035eb4fb24",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"distance\":15,\"motion\":1}",
+        "payloadType": "json",
+        "x": 910,
+        "y": 2020,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c843e35e35060aee",
+        "type": "function",
+        "z": "a9a3e6035eb4fb24",
+        "name": "function 2",
+        "func": "// let distance = msg.payload.distance || 0;\n// let motion = msg.payload.motion || 0;\n\n// // 1. تجهيز استعلام قاعدة البيانات\n// let sqlQuery = `INSERT INTO logs (motion_detected, distance_cm, timestamp) VALUES (${motion}, ${distance}, DATETIME('now'))`;\n// let dbMsg = { topic: sqlQuery };\n\n// // 2. تجهيز رسالة التليجرام (شرط الحركة = 1 والمسافة < 20)\n// let telegramMsg = null;\n\n// if (Number(motion) === 1 && Number(distance) < 20) {\n//     telegramMsg = {\n//         payload: {\n//             chatId: 1787589713, // رقم حسابك الشخصي\n//             type: 'message',\n//             content: `🚨 تنبيه حركة من النظام:\\nالمسافة: ${distance} سم`\n//         }\n//     };\n// }\n\n// // // إرجاع المخرجين: المخرج 1 للتليجرام، والمخرج 2 لقاعدة البيانات\n// return [telegramMsg, dbMsg];\n// let payload = msg.payload || {};\n// let distance = Number(payload.distance || 0);\n// let motion = Number(payload.motion || 0);\n\n// let telegramMsg = null;\n\n// if (motion === 1 && distance < 20) {\n//     telegramMsg = {\n//         payload: {\n//             chatId: 6380128325, // تم التحديث إلى ID حسابك الفعّال\n//             type: 'message',\n//             content: `🚨 تنبيه حركة من النظام:\\nالمسافة: ${distance} سم`\n//         }\n//     };\n// }\n\n// let dbMsg = {\n//     topic: `INSERT INTO logs (motion_detected, distance_cm, timestamp) VALUES (${motion}, ${distance}, DATETIME('now'))`\n// };\n\n// return [telegramMsg, dbMsg];\nlet payload = msg.payload || {};\n\n// تحويل النص إلى JSON إذا وصل البيانات على شكل String\nif (typeof payload === 'string') {\n    try { payload = JSON.parse(payload); } catch(e) { return null; }\n}\n\nlet distance = Number(payload.distance || 0);\nlet motion = Number(payload.motion || 0);\n\n// 1. تجهيز رسالة التليجرام (ترسل عند الحركة أو الاقتراب أقل من 30 سم)\nlet telegramMsg = null;\nif (motion === 1 || (distance > 0 && distance <= 30)) {\n    telegramMsg = {\n        payload: {\n            chatId: 6380128325,\n            type: 'message',\n            content: `🚨 **تنبيه حركة من النظام:**\\nالمسافة: ${distance} سم\\nالحركة: ${motion === 1 ? 'مكشوفة 🚶' : 'غير مكشوفة'}`\n        }\n    };\n}\n\n// 2. تجهيز استعلام الحفظ في قاعدة البيانات\nlet dbMsg = {\n    topic: `INSERT INTO logs (motion_detected, distance_cm, timestamp) VALUES (${motion}, ${distance}, DATETIME('now'))`\n};\n\n// المخرج الأول للتليجرام والمخرج الثاني لقاعدة البيانات\nreturn [telegramMsg, dbMsg];",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 920,
+        "y": 1860,
+        "wires": [
+            [
+                "69fc281b614f34da"
+            ],
+            [
+                "16bfb6152b6c1bc2"
+            ]
+        ]
+    },
+    {
+        "id": "0946927d5227ae74",
+        "type": "inject",
+        "z": "a9a3e6035eb4fb24",
+        "name": "",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "SELECT * FROM logs;",
+        "x": 1440,
+        "y": 3020,
+        "wires": [
+            [
+                "3b41f6ce44951ca0"
+            ]
+        ]
+    },
+    {
+        "id": "1a55f130102d4d54",
+        "type": "debug",
+        "z": "a9a3e6035eb4fb24",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1180,
+        "y": 3020,
+        "wires": []
+    },
+    {
+        "id": "3b41f6ce44951ca0",
+        "type": "sqlite",
+        "z": "a9a3e6035eb4fb24",
+        "mydb": "29ecb4a2a1d02e33",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "",
+        "x": 1450,
+        "y": 2880,
+        "wires": [
+            [
+                "1a55f130102d4d54"
+            ]
+        ]
+    },
+    {
+        "id": "ce889417078eed64",
+        "type": "debug",
+        "z": "a9a3e6035eb4fb24",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1420,
+        "y": 1660,
+        "wires": []
+    },
+    {
+        "id": "c819c0153c0456fb",
+        "type": "mqtt in",
+        "z": "a9a3e6035eb4fb24",
+        "name": "",
+        "topic": "smartstreet/sensors",
+        "qos": "2",
+        "datatype": "json",
+        "broker": "04c7784bfbc2f239",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 690,
+        "y": 3440,
+        "wires": [
+            [
+                "e44156c48b9a85e3"
+            ]
+        ]
+    },
+    {
+        "id": "e44156c48b9a85e3",
+        "type": "function",
+        "z": "a9a3e6035eb4fb24",
+        "name": "function 3",
+        "func": "// استخراج القيم من الكائن JSON القادم من ESP32\nvar distance = msg.payload.distance;\nvar motion = msg.payload.motion;\n\n// تجهيز مخرج للبيانات\nmsg.payload = {\n    distance: distance,\n    motion: motion,\n    status: (distance < 10 || motion === 1) ? \"جسم قريب / حركة كُشفت\" : \"الطريق خالٍ\"\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 920,
+        "y": 3480,
+        "wires": [
+            [
+                "1efc03a3764dc656"
+            ]
+        ]
+    },
+    {
+        "id": "1efc03a3764dc656",
+        "type": "debug",
+        "z": "a9a3e6035eb4fb24",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1120,
+        "y": 3500,
+        "wires": []
+    },
+    {
+        "id": "6af5a49b11cada6a",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-node-sqlite": "2.0.1",
+            "@flowfuse/node-red-dashboard": "1.31.0",
+            "node-red-contrib-telegrambot": "19.0.2"
+        }
+    }
+]
